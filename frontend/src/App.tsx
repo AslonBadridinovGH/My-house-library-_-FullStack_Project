@@ -55,9 +55,12 @@ function App() {
     const logout = () => {
         axios.post("/api/logout").then(()=>loadUser())
     }
+
     useEffect(() => {
-        loadUser()
+        loadUser();
     }, []);
+
+
     function loadUser () {
         axios.get("/api/users/me")
             .then((response) => {
@@ -65,7 +68,6 @@ function App() {
                 setUser(response.data)
             })
     }
-
 
     const navigate = useNavigate()
 
@@ -156,7 +158,7 @@ function App() {
     }
 
     return (
-        <><NavBar log={login} userSet={user} userLoad={loadUser} outlog={logout}/>
+        <><NavBar log={login} userSet={user} userLoad={loadUser} outLog={logout}/>
             <Routes>
                 <Route index element={<Home/>}/>
                 <Route element={<ProtectedRoutes user={user} />}>
