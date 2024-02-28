@@ -55,7 +55,7 @@ function App() {
         axios.post("/api/logout").then(()=>loadUser())
     }
 
-    
+
     useEffect(() => {
         loadUser();
     }, []);
@@ -160,6 +160,8 @@ function App() {
     return (
         <><NavBar log={login} userSet={user} userLoad={loadUser} outLog={logout}/>
             <Routes>
+                <Route path={"/login"} element={<Login log={login}/>}/>
+
                 <Route index element={<Home/>}/>
                 <Route element={<ProtectedRoutes user={user} />}>
                 <Route path="/list" element={<ViewAllBooks books={books} favorites={favorites}  onclickHeart = {onclickHeart} />}/>
@@ -175,7 +177,6 @@ function App() {
                 <Route path="/books/:id/edit" element={<EditBook books={books} editBook={editBook} onUpload={uploadFile}/>}/>
                 <Route path={"/books/add"} element={<AddNewBook saveBook={addBook} onUpload={uploadFile}/>}/>
                 </Route>
-                <Route path={"/login"} element={<Login log={login}/>}/>
                 <Route path={"/thanks"} element={<Thanks/>}/>
                 <Route path={"/*"} element={<NoPage/>}/>
             </Routes>
