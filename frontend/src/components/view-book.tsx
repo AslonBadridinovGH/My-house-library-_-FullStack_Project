@@ -40,18 +40,20 @@ export default function ViewBook(props : ViewBookProps) {
                             </StyledH>
                         </StyledInfo>
                         <StyledImgBox>
-                            <img src={book?.img} alt={`${book?.title} book Cover`} width="auto" height="300vw"/>
+                            <img src={book?.img} alt={`${book?.title} book Cover`} width="400vw" height="auto"/>
                         </StyledImgBox>
                     </StyledDivInfoImg>
                     <StyledDiscrDiv>
                         <StyledDiscription>{book?.description}</StyledDiscription>
                     </StyledDiscrDiv>
+                    <StyledDiscrDiv>
                     <StyledViews>Wurde {book?.views} Mal angeschaut</StyledViews>
                     <Link to={`/books/${book?.id}/edit`}>
                         <button>Edit</button>
                         <button className="book-delete-button" onClick={() => handleBookDelete(book?.id)}>Delete
                         </button>
                     </Link>
+                </StyledDiscrDiv>
                 </StyledDivInfo>
             </StyledDiv>
         </>
@@ -60,7 +62,11 @@ export default function ViewBook(props : ViewBookProps) {
 }
 const StyledDivInfoImg = styled.div`
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin:0 10vw 0 10vw;
+    padding:0;
+    max-width: 100%;
 `;
 const StyledDiv = styled.div`
     margin: 2vw;
@@ -70,38 +76,39 @@ const StyledDiv = styled.div`
 `;
 const StyledDivInfo = styled.div`
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-around;
 `;
 const StyledTitle = styled.h1`
     font-size: 4vw;
-    margin: 1vw;
+    margin: 0 0 1vw 0;
 `;
 const StyledAuthor = styled.h2`
-    margin: 2vw 0 0 1vw;
+    margin: 2vw 0 0 0;
     font-size: 3vw;
     font-style: italic;
 `;
 const StyledInfo = styled.div`
-    margin: 5vw 1vw 0 1vw;
+    margin: 4vw 0 0 0;
 `;
 const StyledImgBox = styled.div`
-    margin: 1vw;
+    margin: 4vw 0 2vw 0;
 `;
 const StyledG = styled.h2`
-    margin: 1vw;
+    margin: 1vw 0 1vw 0;
     font-size: 2vw;
 `;
 
 const StyledYCP = styled.p`
-    margin: 1vw;
+    margin: 1vw 0 1vw 0;
 `;
 const StyledH = styled.div`
     display: flex;
     flex-direction: row;
 `;
 const StyledPubl = styled.p`
-    margin: 1vw;
+    margin: 1vw 0 1vw 0;
     font: italic;
 `;
 const StyledDiscrDiv = styled.div`

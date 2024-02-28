@@ -16,6 +16,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.oidcLogin;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
@@ -79,7 +80,10 @@ class MessageControllerTest {
                                 "message":"Text",
                                 "read": false
                                 }
-                                """))
+                                """)
+                .with(oidcLogin()
+                        .userInfoToken(token ->
+                                token.claim("login", "test-user"))))
                 //THEN
                 .andExpect(status().isOk())
                 .andExpect(content().json("""
@@ -110,7 +114,10 @@ class MessageControllerTest {
                               "message":"TestText",
                               "read": false
                               }
-                              """))
+                              """)
+                .with(oidcLogin()
+                        .userInfoToken(token ->
+                                token.claim("login", "test-user"))))
 
                 //THEN
                 .andExpect(MockMvcResultMatchers.status().isOk())

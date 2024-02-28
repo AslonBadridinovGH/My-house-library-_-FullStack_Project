@@ -1,11 +1,21 @@
 import styled from 'styled-components';
 import {NavLink} from "react-router-dom";
 
-export default function NavBar() {
+type PropsNavBar = {
+    log: ()=>void,
+    userSet:string,
+    userLoad:()=> void,
+    outlog:()=>void,
+}
+export default function NavBar(props:PropsNavBar) {
+
+
     return (
 
         <div>
             <StyledNav>
+                {props.userSet !== "anonymousUser" && props.userSet !== undefined ? <button onClick={props.outlog} title={"LOGOUT"}>{props.userSet}</button>:
+                <button onClick={props.log}>Login</button>}
                 <NavContainer>
                     <Heading>Home Library</Heading>
                     <FlexContainer>
@@ -31,9 +41,10 @@ const StyledNav = styled.nav`
 `;
 
 const NavContainer = styled.div`
-    max-width: 120rem;
+    max-width: 100vw;
+/*    max-width: 120rem;*/
     padding-left: 1rem;
-    padding-right: 0.5rem;
+    padding-right: 0.5vw;
     margin: 0;
     display: flex;
     justify-content: space-between;

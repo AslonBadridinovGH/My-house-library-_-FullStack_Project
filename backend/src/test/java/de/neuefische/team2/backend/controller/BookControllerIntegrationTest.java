@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.oidcLogin;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
@@ -85,8 +86,10 @@ public class BookControllerIntegrationTest {
                              "page": 100,
                              "description": "very good book",
                              "views": 0
-                                    }                      
-                                """))
+                                    }
+                                    """).with(oidcLogin()
+                        .userInfoToken(token ->
+                                token.claim("login", "test-user"))))
 
                 //THEN
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -215,7 +218,9 @@ public class BookControllerIntegrationTest {
                              "views": 0
                          }
                         """)
-        )
+                .with(oidcLogin()
+                        .userInfoToken(token ->
+                                token.claim("login", "test-user"))))
         // THEN
                 .andExpect(status().isOk())
                 .andExpect(content().json("""

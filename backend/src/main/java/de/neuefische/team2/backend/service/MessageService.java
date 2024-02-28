@@ -3,7 +3,6 @@ package de.neuefische.team2.backend.service;
 
 import de.neuefische.team2.backend.models.Message;
 import de.neuefische.team2.backend.models.MessageDtoPost;
-import de.neuefische.team2.backend.models.MessageDtoPut;
 import de.neuefische.team2.backend.repos.MessageRepo;
 import org.springframework.stereotype.Service;
 
@@ -37,10 +36,10 @@ public class MessageService {
 
     public Message updateStatus(String id) {
         Optional<Message> message = messageRepo.findById(id);
-        if(message.isPresent() && message.get().read() == true ) {
-            return messageRepo.save(new Message(id, message.get().name(), message.get().mail(), message.get().message(), false ));
-        } else if(message.isPresent() && message.get().read() == false ){
-            return messageRepo.save(new Message(id, message.get().name(), message.get().mail(), message.get().message(), true ));
+        if (message.isPresent() && message.get().read() == true) {
+            return messageRepo.save(new Message(id, message.get().name(), message.get().mail(), message.get().message(), false));
+        } else if (message.isPresent() && message.get().read() == false) {
+            return messageRepo.save(new Message(id, message.get().name(), message.get().mail(), message.get().message(), true));
         }
         throw (new NoSuchElementException("No message with such id"));
     }
