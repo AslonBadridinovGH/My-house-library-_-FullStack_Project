@@ -5,7 +5,7 @@ type PropsNavBar = {
     log: ()=>void,
     userSet:string,
     userLoad:()=> void,
-    outlog:()=>void,
+    outLog:()=>void,
 }
 export default function NavBar(props:PropsNavBar) {
 
@@ -14,7 +14,7 @@ export default function NavBar(props:PropsNavBar) {
 
         <div>
             <StyledNav>
-                {props.userSet !== "anonymousUser" && props.userSet !== undefined ? <button onClick={props.outlog} title={"LOGOUT"}>{props.userSet}</button>:
+                {props.userSet !== "anonymousUser" && props.userSet !== undefined ? <button onClick={props.outLog} title={"LOGOUT"}>{props.userSet}</button>:
                 <button onClick={props.log}>Login</button>}
                 <NavContainer>
                     <Heading>Home Library</Heading>
