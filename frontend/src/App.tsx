@@ -25,6 +25,7 @@ import {FavoriteBook} from "./types/FavoriteBook.ts";
 function App() {
 
     const [books, setBooks] = useState<Book[]>([])
+
     const [messages, setMessages] = useState<Message[]>([])
 
     const [favorites, setFavorites]=useState<FavoriteBook[]>([])
@@ -54,7 +55,6 @@ function App() {
     const logout = () => {
         axios.post("/api/logout").then(()=>loadUser())
     }
-
 
     useEffect(() => {
         loadUser();
