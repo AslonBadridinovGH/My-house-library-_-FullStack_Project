@@ -61,6 +61,7 @@ public class SecurityConfig {
                         .logoutUrl("/api/logout")
                         .logoutSuccessHandler((request, response, authentication) -> response.setStatus(200)));
         return http.build();
+
     }
 
     @Bean
