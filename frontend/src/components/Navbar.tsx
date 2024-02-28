@@ -31,7 +31,7 @@ const StyledNav = styled.nav`
 `;
 
 const NavContainer = styled.div`
-    max-width: 75rem;
+    max-width: 120rem;
     padding-left: 1rem;
     padding-right: 0.5rem;
     margin: 0;
@@ -65,7 +65,7 @@ const NavLinks = styled(NavLink)`
 const Heading = styled.h1`
     font-size: 5vw;
     color: #FFF;
-    font-family: "Party LET";
+    font-family: "Party LET", serif;
     font-style: normal;
     font-weight: 200;
     line-height: normal;

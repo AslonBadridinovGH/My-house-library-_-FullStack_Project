@@ -8,10 +8,11 @@ type ViewBookProps = {
     handleBookDelete: (id: string) => void
 }
 
-export default function ViewBook(props: ViewBookProps) {
+export default function ViewBook(props : ViewBookProps) {
 
     const [book, setBooks] = useState<Book>();
     const {id} = useParams();
+
     useEffect(() => {
         axios.get(`/api/books/${id}`).then(response => setBooks(response.data))
     }, [])
@@ -30,13 +31,11 @@ export default function ViewBook(props: ViewBookProps) {
                         <StyledInfo>
                             <StyledTitle>{book?.title}</StyledTitle>
                             <StyledAuthor>{book?.author}</StyledAuthor>
-
                             <StyledG>{book?.genre}.</StyledG>
                             <StyledH>
                                 <StyledPubl><i> {book?.publisher}</i>,</StyledPubl>
                                 <StyledYCP><i> {book?.year}.</i></StyledYCP>
-                                {book?.city ?
-                                    <StyledYCP>,<i> {book?.city}</i></StyledYCP> : null}
+                                {book?.city?<StyledYCP>, <i>{book?.city}</i> </StyledYCP> : null}
                                 <StyledYCP><i>P. {book?.page}</i></StyledYCP>
                             </StyledH>
                         </StyledInfo>

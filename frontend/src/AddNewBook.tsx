@@ -111,6 +111,7 @@ export default function AddNewBook(props: AddNewBookProps) {
 
             <p>Add Book</p>
             <StyledFormAdd onSubmit={onBookSubmit}>
+
                 <SInput value={title} onChange={onTitleChange} placeholder="Title"/>
                 <SInput value={author} onChange={onAuthorChange} placeholder={"Author"}/>
 
@@ -125,6 +126,7 @@ export default function AddNewBook(props: AddNewBookProps) {
                 <SInput value={description} onChange={onDescriptionChange} placeholder={"Description"}/>
 
                 <button type="submit">Save</button>
+
             </StyledFormAdd>
         </StyledDiv>
     )
@@ -132,13 +134,13 @@ export default function AddNewBook(props: AddNewBookProps) {
 }
 const SInput =styled.input`
 margin: 0.5vw 0 0.5vw 0`;
+
 const StyledFormAdd = styled.form`
     display:flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: initial;
     width:60%;
-    
 `;
 
 const StyledDiv = styled.div`

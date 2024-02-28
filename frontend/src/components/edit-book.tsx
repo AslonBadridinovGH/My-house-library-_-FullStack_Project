@@ -1,6 +1,6 @@
 import {Book} from "../types/Book.ts";
 import React, {ChangeEvent, FormEvent, useState} from "react";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {AxiosPromise} from "axios";
 
 type EditBookProps = {
@@ -95,6 +95,11 @@ export const EditBook: React.FC<EditBookProps> = ({books, editBook, onUpload}) =
         });
     }
 
+    const navigate = useNavigate();
+    const redirect = ()=>{
+        navigate("/list")
+    }
+
     return (
         <div>
             <div>
@@ -149,6 +154,7 @@ export const EditBook: React.FC<EditBookProps> = ({books, editBook, onUpload}) =
                                placeholder="Views..."/>
                     </div>
                     <button type="submit">Edit book</button>
+                    <button onClick={redirect}>List Book</button>
                 </form>
             </div>
         </div>

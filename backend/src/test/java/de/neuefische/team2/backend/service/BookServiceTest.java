@@ -95,7 +95,7 @@ class BookServiceTest {
         Assertions.assertEquals(expectedId, foundBook.id());
     }
     @Test
-    void deleteToDoTest(){
+    void deleteBookTest(){
         //GIVEN
         Mockito.when(booksRepo.findById(Mockito.any())).thenReturn(
                 Optional.of(
@@ -115,7 +115,6 @@ class BookServiceTest {
                 new Book("2", "Harry Potter und der Stein der Weisen", "J.K. Rowling", "link",
                         "adventure",2000,"Bloomsbury",
                         "London",100,"very good book",0)
-
                 , actual);
 
         Mockito.verify(booksRepo, Mockito.times(1)).findById(Mockito.any());

@@ -1,51 +1,50 @@
+/*
 import {Book} from "../types/Book.ts";
 import React from "react";
-import { CiHeart } from "react-icons/ci";
-
 import {useNavigate} from "react-router-dom";
+import { CiHeart } from "react-icons/ci";
 import styled from "styled-components";
+import {FavoriteBook} from "../types/FavoriteBook.ts";
 
 type BookElementProps = {
-    book: Book
+    favoriteBook: FavoriteBook
     onclickHeart: (book:Book)=>void
     isFavorite:boolean
 }
 
-export const BookElement: React.FC<BookElementProps> = ({book, onclickHeart, isFavorite}) => {
+export const FavoriteBookElement: React.FC<BookElementProps> = ({favoriteBook, onclickHeart, isFavorite}) => {
 
-     const navitage= useNavigate();
+    const navitage= useNavigate();
 
-     const onboxclick=()=>{
-        navitage(`/books/${book.id}`)
+    const onboxclick=()=>{
+        navitage(`/books/${favoriteBook.book.id}`)
     }
 
     const onheartClick=(event :React.MouseEvent <HTMLDivElement, MouseEvent>)=>{
         event.stopPropagation()
-        onclickHeart(book)
+        onclickHeart(favoriteBook.book)
     }
 
     return (
 
-        <div>
+        <div onClick={onboxclick} className="book">
 
-            <div onClick={onboxclick} className="book">
+            <StyledDiv>
 
-                <StyledDiv>
-                    <StyledH>{book.title}</StyledH>
+                <StyledH>{favoriteBook.book.title}</StyledH>
 
-                    <StyledImg src={book?.img} alt={`${book?.title} book cover`}/>
+                <StyledImg src={favoriteBook.book?.img} alt={`${favoriteBook.book?.title} book cover`}/>
 
-                    <div className={isFavorite ? "heartIcon heartIcon-active" : "heartIcon"} onClick={onheartClick}>
-                        <CiHeart/>
-                    </div>
+                <div className={isFavorite ? "heartIcon-active" : "heartIcon"} onClick={onheartClick}>
+                    <CiHeart/>
+                </div>
 
-                </StyledDiv>
-
-            </div>
+            </StyledDiv>
 
         </div>
 
-    );
+    )
+        ;
 
 }
 const StyledH = styled.h2`
@@ -68,10 +67,11 @@ const StyledDiv = styled.div`
     padding: 1.25rem;
 `;
 
+
 const StyledImg = styled.img`
     margin: 1vw 0 1vw 0;
     height: auto;
     width: auto;
     max-width: 90%;
     max-height: 90%;
-    object-fit: contain`;
+    object-fit: contain`;*/

@@ -3,6 +3,25 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 4rem;
+    padding-top: 20px;
+
+}
+
+
+.heartIcon{
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+}
+
+.heartIcon-active{
+    background-color: red;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+
 }
 
 
