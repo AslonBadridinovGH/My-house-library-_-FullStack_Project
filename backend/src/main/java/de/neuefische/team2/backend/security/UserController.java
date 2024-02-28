@@ -27,4 +27,5 @@ public class UserController {
     public User updateFavorite(@RequestBody String bookId) {
         return userService.updateStatus(SecurityContextHolder.getContext().getAuthentication().getName(), bookId);
     }
+
 }

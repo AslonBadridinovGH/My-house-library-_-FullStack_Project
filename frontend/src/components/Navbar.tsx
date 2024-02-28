@@ -9,7 +9,6 @@ type PropsNavBar = {
 }
 export default function NavBar(props:PropsNavBar) {
 
-
     return (
 
         <div>
