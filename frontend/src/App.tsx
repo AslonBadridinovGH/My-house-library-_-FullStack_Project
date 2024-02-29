@@ -158,7 +158,7 @@ function App() {
     }
 
     return (
-        <><NavBar log={login} userSet={user} userLoad={loadUser} outLog={logout}/>
+        <><NavBar log={login} userSet={user} userLoad={loadUser} outLog={logout} />
             <Routes>
                 <Route path={"/login"} element={<Login log={login}/>}/>
 

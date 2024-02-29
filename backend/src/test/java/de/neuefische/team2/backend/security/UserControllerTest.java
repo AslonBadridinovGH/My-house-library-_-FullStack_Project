@@ -1,8 +1,5 @@
 package de.neuefische.team2.backend.security;
-
-import de.neuefische.team2.backend.models.Message;
 import de.neuefische.team2.backend.models.User;
-import de.neuefische.team2.backend.repos.MessageRepo;
 import de.neuefische.team2.backend.repos.UserRepo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,7 +68,7 @@ class UserControllerTest {
                               "id":"user",
                               "name":"Name",
                               "favorites": ["1","2","3"]
-                              }
+                         }
                         """))
                 .andReturn();
     }
